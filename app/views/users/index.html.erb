@@ -1,0 +1,65 @@
+<h1>Listing users</h1>
+
+<div class = "large-9 medium-9 columns">
+   <a href="#" class="small round button">Round Button</a>
+</div>
+</div>
+
+<div class = "large-3 medium-3 columns">
+  <%= link_to "Find Happiness", new_user_path, class: "small round button"%>
+</div>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Happiness</th>
+      <th>Health</th>
+      <th>Wealth</th>
+      <th>Culture</th>
+      <th>Drama</th>
+      <th>Location</th>
+      <th>Spirituality</th>
+      <th>Relationships</th>
+      <th>Activity</th>
+      <th>Reflectivity</th>
+      <th>Civilization</th>
+      <th>Passion</th>
+      <th>Control</th>
+      <th>Satisfaction</th>
+      <th>Self view</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.happiness %></td>
+        <td><%= user.health %></td>
+        <td><%= user.wealth %></td>
+        <td><%= user.culture %></td>
+        <td><%= user.drama %></td>
+        <td><%= user.location %></td>
+        <td><%= user.spirituality %></td>
+        <td><%= user.relationships %></td>
+        <td><%= user.activity %></td>
+        <td><%= user.reflectivity %></td>
+        <td><%= user.civilization %></td>
+        <td><%= user.passion %></td>
+        <td><%= user.control %></td>
+        <td><%= user.satisfaction %></td>
+        <td><%= user.self_view %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>

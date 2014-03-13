@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  happiness: 1.5
+  health: 1.5
+  wealth: 1.5
+  culture: 1.5
+  drama: 1.5
+  location: 1.5
+  spirituality: 1.5
+  relationships: 1.5
+  activity: 1.5
+  reflectivity: 1.5
+  civilization: 1.5
+  passion: 1.5
+  control: 1.5
+  satisfaction: 1.5
+  self_view: 1.5
+
+two:
+  happiness: 1.5
+  health: 1.5
+  wealth: 1.5
+  culture: 1.5
+  drama: 1.5
+  location: 1.5
+  spirituality: 1.5
+  relationships: 1.5
+  activity: 1.5
+  reflectivity: 1.5
+  civilization: 1.5
+  passion: 1.5
+  control: 1.5
+  satisfaction: 1.5
+  self_view: 1.5

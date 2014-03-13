@@ -1,0 +1,83 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%@questions = {happiness:
+  {"How's Your Day Going?" => ["Best Day Eva!", "Just Another Day at the Office", "Wish I Did More", "Terriblé"]
+  }
+
+}%>
+
+  <div class="field">
+    <%= f.label @questions[:happiness].keys.pop %><br>
+    <%= f.text_field :happiness %>
+  </div>
+  <div class="field">
+    <%= f.label :health %><br>
+    <%= f.text_field :health %>
+  </div>
+  <div class="field">
+    <%= f.label :wealth %><br>
+    <%= f.text_field :wealth %>
+  </div>
+  <div class="field">
+    <%= f.label :culture %><br>
+    <%= f.text_field :culture %>
+  </div>
+  <div class="field">
+    <%= f.label :drama %><br>
+    <%= f.text_field :drama %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :spirituality %><br>
+    <%= f.text_field :spirituality %>
+  </div>
+  <div class="field">
+    <%= f.label :relationships %><br>
+    <%= f.text_field :relationships %>
+  </div>
+  <div class="field">
+    <%= f.label :activity %><br>
+    <%= f.text_field :activity %>
+  </div>
+  <div class="field">
+    <%= f.label :reflectivity %><br>
+    <%= f.text_field :reflectivity %>
+  </div>
+  <div class="field">
+    <%= f.label :civilization %><br>
+    <%= f.text_field :civilization %>
+  </div>
+  <div class="field">
+    <%= f.label :passion %><br>
+    <%= f.text_field :passion %>
+  </div>
+  <div class="field">
+    <%= f.label :control %><br>
+    <%= f.text_field :control %>
+  </div>
+  <div class="field">
+    <%= f.label :satisfaction %><br>
+    <%= f.text_field :satisfaction %>
+  </div>
+  <div class="field">
+    <%= f.label :self_view %><br>
+    <%= f.text_field :self_view %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
