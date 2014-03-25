@@ -1,0 +1,21 @@
+
+
+<div class = "large-12 medium-12 columns">
+   <%= link_to "Find Happiness", new_info_path, class: "happy large round button"%>
+  <h1 class="eye1">.</h1>
+  <h1 class="eye2">.</h1>
+  <h1 class="mouth">)</h1>
+  <div class="circle"></div>
+</div>
+
+
+
+<h1 class = "center">Happy Entries</h1>
+  <tbody>
+    <%= render partial: 'info', collection: @infos %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Info', new_info_path %>

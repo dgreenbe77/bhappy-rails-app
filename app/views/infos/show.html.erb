@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p><%= @response.body["face"] %></p>
+
+<p>
+  <strong>Infos:</strong>
+  <%= @user.infos.each {|info| info} %>
+</p>
+<p>
+  <strong>Smile:</strong>
+  <%= @info.smile %>
+</p>
+<p>
+  <strong>Health:</strong>
+  <%= @info.health %>
+</p>
+
+<p>
+  <strong>Wealth:</strong>
+  <%= @info.wealth %>
+</p>
+
+<p>
+  <strong>Culture:</strong>
+  <%= @info.culture %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @info.location %>
+</p>
+
+<p>
+  <strong>Spirituality:</strong>
+  <%= @info.spirituality %>
+</p>
+
+<p>
+  <strong>Relationships:</strong>
+  <%= @info.relationship %>
+</p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @info.activity %>
+</p>
+
+<p>
+  <strong>Passion:</strong>
+  <%= @info.passion %>
+</p>
+
+<p>
+  <strong>Satisfaction:</strong>
+  <%= @info.satisfaction %>
+</p>
+
+<p>
+  <strong>Self view:</strong>
+  <%= @info.self_view %>
+</p>
+
+<%= link_to 'Edit', edit_info_path(@info) %> |
+<%= link_to 'Back', infos_path %>
