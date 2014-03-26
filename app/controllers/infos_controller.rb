@@ -1,35 +1,40 @@
 class InfosController < ApplicationController
-  before_action :set_info, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :authenticate_user!
+  # before_action :set_info, only: [:show, :edit, :update, :destroy]
 
-  # GET /infos
-  # GET /infos.json
   def index
-    @infos = Info.all
+    @infos = Info.all.order(created_at: :desc)
   end
 
-  # GET /infos/1
-  # GET /infos/1.json
   def show
     @info = Info.find(params[:id])
     @user = current_user
+    @infos = @user.infos
     uri = URI::encode(@info.url)
     @response = Unirest::get("https://faceplusplus-faceplusplus.p.mashape.com/detection/detect?url=#{uri}&attribute=glass%2Cpose%2Cgender%2Cage%2Crace%2Csmiling",
     headers:{
       "X-Mashape-Authorization" => "ddgSpWEIQ6z8NMuVzNHb1gD7MjJjfkyA"
     })
+    gon.infos = @infos.map(&:serializable_hash)
+    gon.date = @infos.pluck(:created_at).map {|time| time.strftime('%Y, %m, %d')}
+    gon.health = @infos.pluck(:health)
+    # binding.pry
+    # def self.datafilter(field_name)
+    #   field_data = Array.new
+    #   @infos.each do |info|
+    #     field_data << {"#{field_name}" => info["#{field_name}"], "created_at" => info["created_at"]}
+    #   end
+    #   field_data
+    # end
   end
 
-  # GET /infos/new
   def new
     @info = Info.new
   end
 
-  # GET /infos/1/edit
   def edit
   end
 
-  # POST /infos
-  # POST /infos.json
   def create
     @info = Info.new(info_params)
     unless @info.url.blank?
@@ -57,8 +62,6 @@ class InfosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /infos/1
-  # PATCH/PUT /infos/1.json
   def update
     respond_to do |format|
       if @info.update(info_params)
@@ -71,8 +74,6 @@ class InfosController < ApplicationController
     end
   end
 
-  # DELETE /infos/1
-  # DELETE /infos/1.json
   def destroy
     @info.destroy
     respond_to do |format|
@@ -82,13 +83,11 @@ class InfosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_info
       @info = Info.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def info_params
-      params.require(:info).permit(:happiness, :health, :wealth, :culture, :drama, :location, :spirituality, :relationships, :activity, :reflectivity, :civilization, :passion, :control, :satisfaction, :self_view, :url)
+      params.require(:info).permit(:user_id, :happiness, :health, :wealth, :culture, :drama, :location, :spirituality, :relationships, :activity, :reflectivity, :civilization, :passion, :control, :satisfaction, :self_view, :url)
     end
 end

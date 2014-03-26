@@ -5,7 +5,13 @@ gem 'rails', '4.0.2'
 
 gem 'devise'
 
+gem 'gon'
+
+gem "chartkick"
+
 gem 'pg'
+
+gem 'groupdate'
 
 gem 'unirest'
 

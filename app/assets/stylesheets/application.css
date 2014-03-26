@@ -12,6 +12,16 @@
  *= require_tree .
  */
 
+.media {
+    top: 3px;
+    position: relative;
+}
+.twitter {
+    top: 4px;
+    left: 10px;
+    position: relative;
+}
+
 .eye1 {
     left: 205px;
     top: -175px;
@@ -34,6 +44,7 @@
 
 .center {
     text-align: center;
+    top: 400px;
 }
 
 .mouth {
@@ -75,10 +86,10 @@
     background: rgb(255,255,255);
     border-radius: 100%;
     cursor: pointer;
-    position: relative;
+    position: absolute;
     margin: 0 auto;
-    top: -30px;
-    left: -230px;
+    top: 30px;
+    left: 50px;
     width: 30em;
     height: 30em;
     overflow: hidden;
