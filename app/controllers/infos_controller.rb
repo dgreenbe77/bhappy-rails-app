@@ -1,6 +1,5 @@
 class InfosController < ApplicationController
-  skip_before_filter :authenticate_user!
-  # before_action :set_info, only: [:show, :edit, :update, :destroy]
+  before_action :set_info, only: [:show, :edit, :update, :destroy]
 
   def index
     @infos = Info.all.order(created_at: :desc)
