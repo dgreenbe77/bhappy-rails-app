@@ -6,8 +6,10 @@
   <title>Bhappy - Chart Your Personal Path to Happiness</title>
   <%= include_gon %>
   <link rel="Icon" href="/images/star.png">
-  <%= csrf_meta_tags %>
   <script type="text/javascript"></script>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
 </head>
 
 <body>
